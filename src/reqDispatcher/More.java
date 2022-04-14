@@ -13,16 +13,16 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Index
  */
-@WebServlet("/Index")
-public class Index extends HttpServlet {
+@WebServlet("/More")
+public class More extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		
-		request.setAttribute("nav_item", "Index");
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/index.jsp");
+		request.setAttribute("nav_item", "More");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/more.jsp");
 		
 		rd.forward(request, response);
 	}

@@ -35,14 +35,7 @@
 		<%@ include file="header.jsp"%>
 
 		<main role="main" class="inner cover">
-			<h1 class="cover-heading">卡通人物识别 · 以哆啦A梦为例</h1>
-			<img src="img/indexbg.png" class="img-fluid" alt="Responsive image" style="max-width: 100%;height: auto; ">
-			<p class="lead">Cover is a one-page template for building simple
-				and beautiful home pages. Download, edit the text, and add your own
-				fullscreen background photo to make it your own.</p>
-			<p class="lead">
-				<a href="UploadVeo" class="btn btn-lg btn-secondary">开始尝试</a>
-			</p>
+			
 		</main>
 
 		<%@ include file="footer.jsp"%>

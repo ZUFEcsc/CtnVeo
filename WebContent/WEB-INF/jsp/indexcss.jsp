@@ -3,23 +3,26 @@
 <style>
     /*
 	 * Globals
+	 * 淡紫 225,230,246 #e1e6f6
+	 * 淡蓝 208,223,238 #d0dfee
+	 * 浅灰 244,246,252 #f4f6fc
 	 */
 	
 	/* Links */
 	a,
 	a:focus,
 	a:hover {
-	  color: #fff;
+	  color: #333;
 	}
 	
 	/* Custom default button */
 	.btn-secondary,
 	.btn-secondary:hover,
 	.btn-secondary:focus {
-	  color: #333;
+	  color: #ffffff;
 	  text-shadow: none; /* Prevent inheritance from `body` */
-	  background-color: #fff;
-	  border: .05rem solid #fff;
+	  background-color: #333;
+	  border: .05rem solid #333;
 	}
 	
 	
@@ -30,15 +33,15 @@
 	html,
 	body {
 	  height: 100%;
-	  background-color: #333;
+	  background-color: #ffffff;
 	}
 	
 	body {
 	  display: -ms-flexbox;
 	  display: flex;
-	  color: #fff;
-	  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-	  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+	  color: #333;
+	  text-shadow: 0 .05rem .1rem rgba(232, 242, 254, .5);
+	  box-shadow: inset 0 0 5rem rgba(232, 242, 254, .5);
 	}
 	
 	.cover-container {
@@ -60,14 +63,14 @@
 	.nav-masthead .nav-link {
 	  padding: .25rem 0;
 	  font-weight: 700;
-	  color: rgba(255, 255, 255, .5);
+	  color: rgba(0, 0, 0, .5);
 	  background-color: transparent;
 	  border-bottom: .25rem solid transparent;
 	}
 	
 	.nav-masthead .nav-link:hover,
 	.nav-masthead .nav-link:focus {
-	  border-bottom-color: rgba(255, 255, 255, .25);
+	  border-bottom-color: rgba(0, 0, 0, .25);
 	}
 	
 	.nav-masthead .nav-link + .nav-link {
@@ -75,8 +78,8 @@
 	}
 	
 	.nav-masthead .active {
-	  color: #fff;
-	  border-bottom-color: #fff;
+	  color: #333;
+	  border-bottom-color: #333;
 	}
 	
 	@media (min-width: 48em) {
@@ -105,7 +108,7 @@
 	 * Footer
 	 */
 	.mastfoot {
-	  color: rgba(255, 255, 255, .5);
+	  color: rgba(0, 0, 0, .5);
 	}
     </style>
     
