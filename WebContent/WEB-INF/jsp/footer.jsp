@@ -3,8 +3,8 @@
 <footer class="mastfoot mt-auto">
 	<div class="inner">
 		<p>
-			Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>,
-			by <a href="https://github.com/ZUFEcsc">@ZUFEcsc</a>.
+			本站视频来源均搬运于 <a href="https://www.bilibili.com/">bilibili</a>,
+			制作者 <a href="https://github.com/ZUFEcsc">@ZUFEcsc</a>.
 		</p>
 	</div>
 </footer>

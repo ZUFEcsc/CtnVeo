@@ -8,8 +8,6 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author"	content="Chen Shan">
 <title>V2 Analysis · 哆啦A梦</title>
-<link rel="icon" href="img/ticon.png" />
-<link rel="canonical" href="https://getbootstrap.com/docs/4.2/examples/cover/">
 
 <%@ include file="bootstrap.jsp"%>
 
