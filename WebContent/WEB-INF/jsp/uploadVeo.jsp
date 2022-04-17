@@ -192,7 +192,6 @@
 	<!-- <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> -->
 	<div class="container  d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-
 		<%@ include file="header.jsp"%>
 
 		<!-- 步骤条  -->
@@ -255,6 +254,7 @@
 		<div class="row" style="padding-top: 3%;">
 			<div class="col-sm-8"></div>
 			<div class="col-sm">
+				<form method="post" action="SSD">
 				<button class=" btn btn-outline-primary btn-sm" style="float: right;">
 					请选择你的视频文件 <input id="uploaderInput" class="weui-uploader__input"
 						onchange="chooseVideoInput()" accept="video/*" multiple=""
@@ -263,9 +263,9 @@
 				</button>
 				<div id="uploadBtn" style="display:none;">
 					<button class=" btn btn-outline-primary btn-sm"
-						style="float: left;">确认上传</button>
+						style="float: left;" type="submit">确认上传</button>
 				</div>
-
+				</form>
 			</div>
 		</div>
 		<div class="row" style="padding-bottom: 2%;">

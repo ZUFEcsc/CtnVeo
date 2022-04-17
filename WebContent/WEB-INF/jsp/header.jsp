@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<header class="masthead mb-auto">
+<header class="masthead">
 	<div class="inner">
 		<h3 class="masthead-brand">V2 Analysis</h3>
 		<nav class="nav nav-masthead justify-content-center">
