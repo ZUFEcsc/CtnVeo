@@ -12,6 +12,10 @@
 <%@ include file="bootstrap.jsp"%>
 
 <style>
+.pimg{
+width:115%;
+}
+
 .bd-placeholder-img {
 	font-size: 1.125rem;
 	text-anchor: middle;
@@ -131,12 +135,7 @@
 					<div class="step-text">3</div>
 					<div class="step-main">3.结果统计</div>
 				</div>
-				<div class="step-line step-completed"></div>
-				<div class="step-line"></div>
-				<div class="step">
-					<div class="step-text">4</div>
-					<div class="step-main">4.结果统计</div>
-				</div>
+				
 			</div>
 		</div>
 
@@ -152,19 +151,21 @@
 
 						<h6 class="card-subtitle mb-2 text-muted">精确率
 							precision=正确被检索的结果/实际被检索的结果</h6>
-						<p class="card-text">原视频时长为00：50，检测到其中哆啦A梦出现X秒，大雄出现X秒，胖虎出现X秒，小夫出现X秒，静香出现X秒，分析得知本段视频围绕大雄进行展开。</p>
+						<p></p>
+						<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原视频时长为00：50，检测到其中哆啦A梦出现X秒，大雄出现X秒，胖虎出现X秒，小夫出现X秒，静香出现X秒，分析得知本段视频围绕大雄进行展开。</p>
 
-						<a href="#" class="card-link" style="float: right;color:#666;">下载分析结果<<</a>
+						<a href="#" class="card-link" style="float: right; color: #666;">下载分析结果<<</a>
 						<br> <a href="SSD" class="btn btn-outline-primary"
 							style="margin-top: 0.75rem;">上一步</a> <a href="#"
-							class="btn btn-primary" style="float: right;margin-top: 0.75rem; ">下一步</a>
+							class="btn btn-primary"
+							style="float: right; margin-top: 0.75rem;">下一步</a>
 
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-1"></div>
 		</div>
-		
+
 		<!-- 角色市场占比 饼图 -->
 		<script type="text/javascript">
 			var dom = document.getElementById("piediv");
@@ -230,7 +231,38 @@
 		</script>
 
 		<div class="row">
-			<div class="col-sm" id="scatterdiv" style="height:330px;"></div>
+			<div class="col-sm-1">
+				<table class="table table-borderless">
+					<tbody>
+						<tr>
+							<th>
+							<img alt="ドラえもん" src="img/duola.jpg" class="pimg">
+							</th>
+						</tr>
+						<tr>
+							<th>
+							<img alt="野比のび" src="img/dax.jpg" class="pimg">
+							</th>
+						</tr>
+						<tr>
+							<th>
+							<img alt="刚田武シァィンり" src="img/panh.jpg" class="pimg">
+							</th>
+						</tr>
+						<tr>
+							<th>
+							<img alt="骨川スネ夫" src="img/xiaof.jpg" class="pimg">
+							</th>
+						</tr>
+						<tr>
+							<th>
+							<img alt="源 静香" src="img/jingx.jpg" class="pimg">
+							</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm" id="scatterdiv" style="height: 330px;"></div>
 		</div>
 
 		<script type="text/javascript">
@@ -245,8 +277,7 @@
 					'8a', '9a', '10a', '11a', '12p', '1p', '2p', '3p', '4p',
 					'5p', '6p', '7p', '8p', '9p', '10p', '11p' ];
 			// prettier-ignore
-			const days = [ 'ドラえもん', '野比のび', '刚田武シァィンり', '骨川スネ夫',
-					'源 静香'];
+			const days = [ 'ドラえもん', '野比のび', '刚田武シァィンり', '骨川スネ夫', '源 静香' ];
 			// prettier-ignore
 			const data = [ [ 0, 0, 5 ], [ 0, 1, 1 ], [ 0, 2, 0 ], [ 0, 3, 0 ],
 					[ 0, 4, 0 ], [ 0, 5, 0 ], [ 0, 6, 0 ], [ 0, 7, 0 ],

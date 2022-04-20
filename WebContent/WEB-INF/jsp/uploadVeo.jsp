@@ -213,12 +213,6 @@
 					<div class="step-text">3</div>
 					<div class="step-main">3.结果统计</div>
 				</div>
-				<div class="step-line"></div>
-				<div class="step-line"></div>
-				<div class="step">
-					<div class="step-text">4</div>
-					<div class="step-main">4.人物关系分析</div>
-				</div>
 			</div>
 		</div>
 
