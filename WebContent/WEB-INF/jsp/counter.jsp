@@ -12,8 +12,8 @@
 <%@ include file="bootstrap.jsp"%>
 
 <style>
-.pimg{
-width:115%;
+.pimg {
+	width: 115%;
 }
 
 .bd-placeholder-img {
@@ -135,7 +135,7 @@ width:115%;
 					<div class="step-text">3</div>
 					<div class="step-main">3.结果统计</div>
 				</div>
-				
+
 			</div>
 		</div>
 
@@ -148,14 +148,12 @@ width:115%;
 						<h5 class="card-title"
 							style="text-align: center; margin-bottom: 1.5rem;">SSD模型应用 ·
 							结果统计</h5>
-
-						<h6 class="card-subtitle mb-2 text-muted">精确率
-							precision=正确被检索的结果/实际被检索的结果</h6>
+						<h6 class="card-subtitle mb-2 text-muted">对于该片段，SSD模型的精确率为12.12%，召回率为55.55%，FPS为23.33。</h6>
 						<p></p>
 						<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原视频时长为00：50，检测到其中哆啦A梦出现X秒，大雄出现X秒，胖虎出现X秒，小夫出现X秒，静香出现X秒，分析得知本段视频围绕大雄进行展开。</p>
-
-						<a href="#" class="card-link" style="float: right; color: #666;">下载分析结果<<</a>
-						<br> <a href="SSD" class="btn btn-outline-primary"
+						<a href="#" id="renderPdf" class="card-link"
+							style="float: right; color: #666;">下载分析结果<< </a> <br> <a
+							href="SSD" class="btn btn-outline-primary"
 							style="margin-top: 0.75rem;">上一步</a> <a href="#"
 							class="btn btn-primary"
 							style="float: right; margin-top: 0.75rem;">下一步</a>
@@ -166,6 +164,7 @@ width:115%;
 			<div class="col-sm-1"></div>
 		</div>
 
+		
 		<!-- 角色市场占比 饼图 -->
 		<script type="text/javascript">
 			var dom = document.getElementById("piediv");
@@ -235,28 +234,22 @@ width:115%;
 				<table class="table table-borderless">
 					<tbody>
 						<tr>
-							<th>
-							<img alt="ドラえもん" src="img/duola.jpg" class="pimg">
+							<th><img alt="ドラえもん" src="img/duola.jpg" class="pimg">
 							</th>
 						</tr>
 						<tr>
-							<th>
-							<img alt="野比のび" src="img/dax.jpg" class="pimg">
+							<th><img alt="野比のび" src="img/dax.jpg" class="pimg"></th>
+						</tr>
+						<tr>
+							<th><img alt="刚田武シァィンり" src="img/panh.jpg" class="pimg">
 							</th>
 						</tr>
 						<tr>
-							<th>
-							<img alt="刚田武シァィンり" src="img/panh.jpg" class="pimg">
+							<th><img alt="骨川スネ夫" src="img/xiaof.jpg" class="pimg">
 							</th>
 						</tr>
 						<tr>
-							<th>
-							<img alt="骨川スネ夫" src="img/xiaof.jpg" class="pimg">
-							</th>
-						</tr>
-						<tr>
-							<th>
-							<img alt="源 静香" src="img/jingx.jpg" class="pimg">
+							<th><img alt="源 静香" src="img/jingx.jpg" class="pimg">
 							</th>
 						</tr>
 					</tbody>
@@ -357,7 +350,58 @@ width:115%;
 		</script>
 
 		<%@ include file="footer.jsp"%>
+		
+		<!-- 下载pdf -->
 
+		<script type="text/javascript" src="html2canvas.js"></script>
+		<script type="text/javascript" src="jsPdf.debug.js"></script>
+		<script type="text/javascript">
+
+      var downPdf = document.getElementById("renderPdf");
+
+      downPdf.onclick = function() {
+          html2canvas(document.body, {
+              onrendered:function(canvas) {
+
+                  var contentWidth = canvas.width;
+                  var contentHeight = canvas.height;
+
+                  //一页pdf显示html页面生成的canvas高度;
+                  var pageHeight = contentWidth / 592.28 * 841.89;
+                  //未生成pdf的html页面高度
+                  var leftHeight = contentHeight;
+                  //pdf页面偏移
+                  var position = 0;
+                  //a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高
+                  var imgWidth = 595.28;
+                  var imgHeight = 592.28/contentWidth * contentHeight;
+
+                  var pageData = canvas.toDataURL('image/jpeg', 1.0);
+
+                  var pdf = new jsPDF('', 'pt', 'a4');
+
+                  //有两个高度需要区分，一个是html页面的实际高度，和生成pdf的页面高度(841.89)
+                  //当内容未超过pdf一页显示的范围，无需分页
+                  if (leftHeight < pageHeight) {
+                      pdf.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight );
+                  } else {
+                      while(leftHeight > 0) {
+                          pdf.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
+                          leftHeight -= pageHeight;
+                          position -= 841.89;
+                          //避免添加空白页
+                          if(leftHeight > 0) {
+                              pdf.addPage();
+                          }
+                      }
+                  }
+
+                  pdf.save('SSD-report.pdf');
+              }
+          })
+      }
+    </script>
+		
 	</div>
 </body>
 </html>
