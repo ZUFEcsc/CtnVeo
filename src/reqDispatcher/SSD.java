@@ -21,7 +21,6 @@ public class SSD extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		
-		
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/ssd.jsp");
 		
 		rd.forward(request, response);
