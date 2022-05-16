@@ -22,89 +22,18 @@
 		font-size: 3.5rem;
 	}
 }
-.card-text{
-	margin-bottom:1.5rem;
-}
-</style>
 
-<style>
-.steps {
-	position: relative;
-	padding: 25px 0 25px 20px;
-}
-
-.step, .step-line {
-	float: left;
-}
-
-.step {
-	display: block;
-	width: 21px;
-	height: 21px;
-	border-radius: 50%;
-	line-height: 17px;
-	text-align: center;
-	font-size: 15px;
-	border: 2px solid #cdcdcd;
-	background: #cdcdcd;
-	font: 16px Helvetica Neue, Helvetica, PingFang SC, 微软雅黑, Tahoma, Arial,
-		sans-serif;
-}
-
-.step-line {
-	width: 50px;
-	position: relative;
-	top: 9px;
-	height: 5px;
-	background-color: #cdcdcd;
-}
-
-.step-text {
-	/*margin-left: -1px;*/
-	line-height: 21px;
-	color: #fff;
-}
-
-.step-circle {
-	margin: 4px;
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	background-color: #bfcbd9;
-}
-
-.step-main {
-	font: 14px Helvetica Neue, Helvetica, PingFang SC, 微软雅黑, Tahoma, Arial,
-		sans-serif;
-	padding: 8px 0;
-	display: block;
-	width: 100px;
-	text-align: center;
-	position: relative;
-	left: -34px;
-	color: #313131;
-}
-
-.steps>.step-completed {
-	background: #74acdd;
-	border-color: #74acdd;
-}
-
-/*.step-completed > .step-main {
-    color: #2f318e;
-}*/
-.step-completed>.step-circle {
-	background-color: #2f318e;
-}
-
-.step-completed.step-line {
-	background-color: #74acdd;
+.card-text {
+	margin-bottom: 1.5rem;
 }
 </style>
 
 <%@ include file="indexcss.jsp"%>
 
+<%@ include file="stepcss.jsp"%>
+
 </head>
+
 <body class="text-center">
 	<!-- <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> -->
 	<div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -116,67 +45,189 @@
 			<div class="steps" style="margin: auto;">
 				<div class="step step-completed">
 					<div class="step-text">1</div>
-					<div class="step-main">1.选择视频片段</div>
+					<div class="step-main">选择视频片段</div>
 				</div>
+				<div class="step-line step-completed"></div>
+				<div class="step-line step-completed"></div>
 				<div class="step-line step-completed"></div>
 				<div class="step-line step-completed"></div>
 				<div class="step step-completed">
 					<div class="step-text">2</div>
-					<div class="step-main">2.SSD算法解析</div>
+					<div class="step-main">算法解析</div>
 				</div>
 				<div class="step-line step-completed"></div>
+				<div class="step-line step-completed"></div>
+				<div class="step-line"></div>
 				<div class="step-line"></div>
 				<div class="step">
 					<div class="step-text">3</div>
-					<div class="step-main">3.结果统计</div>
+					<div class="step-main">结果统计</div>
 				</div>
-				
+
 			</div>
 		</div>
 
 		<div class="row">
 			<!-- <div class="col-sm-1"></div> -->
-			<div class="col-sm" id="scorediv" style="height: 500px;"></div>
-			<div class="col-sm" style="padding: 5% 0;">
+			<!-- <div class="col-sm" id="scorediv" style="height: 500px;"></div> -->
+			<div class="col-sm-3">
 				<div class="card" style="height: 100%;">
+					<h5 class="card-title"
+						style="text-align: center; margin-top: 25px;">视频帧检测部分结果</h5>
+					<hr>
+					<div>
+					<img class="card-img-top" src="img/s1.png">
+					<p class="card-text" style="text-algin:center;color:#666;margin-bottom:10px;">截取时间 00：15</p>
+					</div>
+					<div >
+					<img class="card-img-top" src="img/s2.png">
+					<p class="card-text" style="text-algin:center;color:#666;margin-bottom:10px;">截取时间 00：36</p>
+					</div>
+					<div>
+					<img class="card-img-top" src="img/s3.png" style="margin: auto;">
+					<p class="card-text" style="text-algin:center;color:#666;margin-bottom:10px;">截取时间 00：39</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-sm-9">
+				<div class="card" style="height: 100%;">
+					<h5 class="card-title"
+						style="text-align: center; margin-top: 25px;">SSD指标分析结果</h5>
+					<hr>
 					<div class="card-body" style="text-align: left;">
-						<h5 class="card-title" style="text-align: center;margin-bottom:10%;">SSD模型应用指标分析结果</h5>
+						<div style="display: inline-block; width: 57%;">
+							<div id="scorediv" style="height: 300px;"></div>
 
-						<h6 class="card-subtitle mb-2 text-muted">精确率
-							precision=正确被检索的结果/实际被检索的结果</h6>
-						<p class="card-text">本次模型表现指标为：</p>
+							<h6 class="card-subtitle mb-2 text-muted">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mAP = P-R曲线积分所得 / 5
+								(类别数)</h6>
+							<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次模型表现指标为：78.08%</p>
 
-						<h6 class="card-subtitle mb-2 text-muted">召回率
-							recall=正确被检索的结果/应该被检索的结果</h6>
-						<p class="card-text">本次模型表现指标为：</p>
 
-						<h6 class="card-subtitle mb-2 text-muted">fps
-							每秒模型可处理的图片张数和检测框个数</h6>
-						<p class="card-text">本次模型表现指标为：</p>
-						
-						<a href="#" class="card-link" style="float:right;">查看指标来源和参考依据</a>
-						<br>
-						
-						<a href="UploadVeo" class="btn btn-outline-primary" style="left;margin-top:5%;">重新选择视频</a>
-						<a href="Counter" class="btn btn-primary" style="float:right;margin-top:5%;">下一步</a>
-						
+							<h6 class="card-subtitle mb-2 text-muted">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FPS&nbsp;:&nbsp;每秒模型可处理的图片张数和检测框个数</h6>
+							<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次模型表现指标为：2.98</p>
+
+
+						</div>
+						<div style="display: inline-block; width: 41%;">
+
+							<h6 class="card-subtitle mb-2 text-muted">精确率 precision =
+								正确被检索的结果/实际被检索的结果</h6>
+							<p class="card-text">本次模型表现指标为：95.76%</p>
+
+							<h6 class="card-subtitle mb-2 text-muted">召回率 recall =
+								正确被检索的结果/应该被检索的结果</h6>
+							<p class="card-text">本次模型表现指标为：87.94%</p>
+
+							<h6 class="card-subtitle mb-2 text-muted">F-Measure = F1值 =
+								精确率 * 召回率 * 2 / (精确率 + 召回率)</h6>
+							<p class="card-text">本次模型表现指标为：0.9</p>
+
+							<a href="#" class="card-link" style="float: right;">查看指标来源和参考依据<<</a>
+							<br> <a href="UploadVeo" class="btn btn-outline-primary"
+								style="margin-top: 5%;">重新选择视频</a> <a href="Counter"
+								class="btn btn-primary" style="float: right; margin-top: 5%;">下一步</a>
+						</div>
+
+
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-1"></div>
-
 		</div>
 
+		<!-- 得分jsp -->
+		<script type="text/javascript">
+			var chartDom = document.getElementById('scorediv');
+			var myChart = echarts.init(chartDom);
+			var option;
+
+			option = {
+				xAxis : {
+					type : 'category',
+					data : [ 'Precision', 'Recall', 'F-Measure', 'mAP' ]
+				},
+				yAxis : {
+					type : 'value'
+				},
+				tooltip : {
+					trigger : 'axis',
+					axisPointer : {
+						type : 'shadow',
+						label : {
+							show : true
+						}
+					}
+				},
+				toolbox : {
+					show : true,
+					feature : {
+						mark : {
+							show : true
+						},
+						dataView : {
+							show : true,
+							readOnly : false
+						},
+						magicType : {
+							show : true,
+							type : [ 'line', 'bar', 'tiled' ]
+						},
+						restore : {
+							show : true
+						},
+						saveAsImage : {
+							show : true
+						}
+					}
+				},
+				series : [ {
+					name : 'SSD模型评估指标',
+					type : 'bar',
+					data : [ {
+						value : 0.9576,
+						itemStyle : {
+							color : '#fa983a'
+						}
+					}, {
+						value : 0.8794,
+						itemStyle : {
+							color : '#eb2f06'
+						}
+					}, {
+						value : 0.9,
+						itemStyle : {
+							color : '#1e3799'
+						}
+					}, {
+						value : 0.7808,
+						itemStyle : {
+							color : '#38ada9'
+						}
+					} ],
+					showBackground : true,
+					backgroundStyle : {
+						color : 'rgba(180, 180, 180, 0.2)'
+					}
+				} ]
+			};
+
+			if (option && typeof option === 'object') {
+				myChart.setOption(option);
+			}
+		</script>
+		<!-- 
 		<script type="text/javascript">
 			var dom = document.getElementById("scorediv");
 			var myChart = echarts.init(dom);
 			var app = {};
-
 			var option;
-
 			const gaugeData = [ {
 				value : 75,
-				name : '精确率',
+				//name : '精确率',
 				title : {
 					offsetCenter : [ '0%', '-30%' ]
 				},
@@ -186,7 +237,7 @@
 				}
 			}, {
 				value : 40,
-				name : '召回率',
+				//name : '召回率',
 				title : {
 					offsetCenter : [ '0%', '0%' ]
 				},
@@ -196,7 +247,7 @@
 				}
 			}, {
 				value : 60,
-				name : 'FPS',
+				//name : 'FPS',
 				title : {
 					offsetCenter : [ '0%', '30%' ]
 				},
@@ -250,7 +301,7 @@
 						fontSize : 14,
 						color : 'auto',
 						borderColor : 'auto',
-						borderRadius : 20,
+						borderRadius : 10,
 						borderWidth : 1,
 						formatter : '{value}%'
 					}
@@ -274,8 +325,7 @@
 				myChart.setOption(option);
 			}
 		</script>
-
-
+		-->
 		<%@ include file="footer.jsp"%>
 
 	</div>
