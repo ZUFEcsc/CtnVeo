@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="zh_CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
@@ -77,15 +77,15 @@
 					<hr>
 					<div>
 					<img class="card-img-top" src="img/s1.png">
-					<p class="card-text" style="text-algin:center;color:#666;margin-bottom:15px;">截取时间 00：15</p>
+					<p class="card-text" style="color:#666;margin-bottom:15px;">截取时间 00：15</p>
 					</div>
 					<div >
 					<img class="card-img-top" src="img/s2.png">
-					<p class="card-text" style="text-algin:center;color:#666;margin-bottom:15px;">截取时间 00：36</p>
+					<p class="card-text" style="color:#666;margin-bottom:15px;">截取时间 00：36</p>
 					</div>
 					<div>
 					<img class="card-img-top" src="img/s3.png" style="margin: auto;">
-					<p class="card-text" style="text-algin:center;color:#666;margin-bottom:15px;">截取时间 00：39</p>
+					<p class="card-text" style="color:#666;margin-bottom:15px;">截取时间 00：39</p>
 					</div>
 				</div>
 
@@ -140,10 +140,12 @@
 			<div class="col-sm-1"></div>
 		</div>
 
+		<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/echarts.js"></script>
 		<!-- 得分jsp -->
 		<script type="text/javascript">
 			var chartDom = document.getElementById('scorediv');
-			var myChart = echarts.init(chartDom);
+			var scoreChart = echarts.init(chartDom);
+
 			var option;
 
 			option = {
@@ -217,7 +219,7 @@
 			};
 
 			if (option && typeof option === 'object') {
-				myChart.setOption(option);
+				scoreChart.setOption(option);
 			}
 		</script>
 		<!-- 

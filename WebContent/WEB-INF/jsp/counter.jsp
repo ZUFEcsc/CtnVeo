@@ -79,7 +79,7 @@
 							style="text-align: center; margin-bottom: 1rem;">SSD模型应用 ·
 							结果统计</h5>
 						<hr>
-						<h6 class="card-subtitle mb-2 text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于该片段，SSD模型的精确率为12.12%，召回率为55.55%，FPS为23.33。</h6>
+						<h6 class="card-subtitle mb-2 text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于该片段，SSD模型的精确率为95.76%，召回率为87.94%，FPS为2.98。</h6>
 						<p></p>
 						<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原视频时长为01：00，检测到其中哆啦A梦出现32秒，大雄出现38秒，胖虎出现22秒，小夫出现16秒，静香出现12秒，分析得知本段视频围绕大雄进行展开。</p>
 						<a href="#" id="renderPdf" class="card-link"
@@ -93,7 +93,7 @@
 			<div class="col-sm-1"></div>
 		</div>
 
-
+		<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/echarts.js"></script>
 		<!-- 角色市场占比 饼图 -->
 		<script type="text/javascript">
 			var dom = document.getElementById("piediv");
@@ -302,7 +302,6 @@
 		<%@ include file="footer.jsp"%>
 
 		<!-- 下载pdf -->
-
 		<script type="text/javascript" src="html2canvas.js"></script>
 		<script type="text/javascript" src="jsPdf.debug.js"></script>
 		<script type="text/javascript">

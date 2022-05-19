@@ -13,5 +13,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Maven Dependencies"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/.m2/repository/commons-dbutils/commons-dbutils/1.7/commons-dbutils-1.7.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

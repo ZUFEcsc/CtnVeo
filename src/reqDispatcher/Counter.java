@@ -21,7 +21,6 @@ public class Counter extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		
-		
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/counter.jsp");
 		
 		rd.forward(request, response);
