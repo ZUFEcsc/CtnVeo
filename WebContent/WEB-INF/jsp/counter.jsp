@@ -47,7 +47,7 @@
 			<div class="steps" style="margin: auto;">
 				<div class="step step-completed">
 					<div class="step-text">1</div>
-					<div class="step-main">选择视频片段</div>
+					<div class="step-main"><a href="VDemo">选择视频示例</a></div>
 				</div>
 				<div class="step-line step-completed"></div>
 				<div class="step-line step-completed"></div>
@@ -55,7 +55,7 @@
 				<div class="step-line step-completed"></div>
 				<div class="step step-completed">
 					<div class="step-text">2</div>
-					<div class="step-main">SSD算法解析</div>
+					<div class="step-main"><a href="SSD?vname=${video.vname}">指标呈现</a></div>
 				</div>
 				<div class="step-line step-completed"></div>
 				<div class="step-line step-completed"></div>
@@ -63,7 +63,7 @@
 				<div class="step-line step-completed"></div>
 				<div class="step step-completed">
 					<div class="step-text">3</div>
-					<div class="step-main">结果统计</div>
+					<div class="step-main"><a href="#">结果统计</a></div>
 				</div>
 
 			</div>
@@ -79,13 +79,13 @@
 							style="text-align: center; margin-bottom: 1rem;">SSD模型应用 ·
 							结果统计</h5>
 						<hr>
-						<h6 class="card-subtitle mb-2 text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于该片段，SSD模型的精确率为95.76%，召回率为87.94%，FPS为2.98。</h6>
+						<h6 class="card-subtitle mb-2 text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于该片段，SSD模型的精确率为${ssd.ssdP*100 }%，召回率为${ssd.ssdR*100 }%，FPS为${ssd.ssdFPS}。</h6>
 						<p></p>
-						<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原视频时长为01：00，检测到其中哆啦A梦出现32秒，大雄出现38秒，胖虎出现22秒，小夫出现16秒，静香出现12秒，分析得知本段视频围绕大雄进行展开。</p>
+						<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原视频时长为${video.vtime}，检测到其中哆啦A梦出现${roleTime.dortime}秒，大雄出现${roleTime.daxtime}秒，胖虎出现${roleTime.phutime}秒，小夫出现${roleTime.xfutime}秒，静香出现${roleTime.jxtime}秒，分析得知本段视频围绕大雄进行展开。</p>
 						<a href="#" id="renderPdf" class="card-link"
 							style="float: right; color: #666;">下载分析结果<< </a>
 							 <br>
-						<a href="SSD" class="btn btn-outline-primary" style="margin-top: 0.75rem;">上一步</a> 
+						<a href="SSD?vname=${video.vname}" class="btn btn-outline-primary" style="margin-top: 0.75rem;">上一步</a> 
 						<a href="UploadVeo" class="btn btn-primary"	style="float: right; margin-top: 0.75rem;">再来一次 ：D</a>
 					</div>
 				</div>
@@ -136,19 +136,19 @@
 						show : false
 					},
 					data : [ {
-						value : 204,
+						value : ${roleScore.dorscore},
 						name : 'ドラえもん'
 					}, {
-						value : 312,
+						value : ${roleScore.daxscore},
 						name : '野比のび'
 					}, {
-						value : 140,
+						value : ${roleScore.phuscore},
 						name : '刚田武シァィンり'
 					}, {
-						value : 96,
+						value : ${roleScore.xfuscore},
 						name : '骨川スネ夫'
 					}, {
-						value : 112,
+						value : ${roleScore.jxscore},
 						name : '源 静香'
 					} ]
 				} ]

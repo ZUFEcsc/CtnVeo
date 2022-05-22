@@ -45,7 +45,7 @@
 			<div class="steps" style="margin: auto;">
 				<div class="step step-completed">
 					<div class="step-text">1</div>
-					<div class="step-main">选择视频片段</div>
+					<div class="step-main"><a href="VDemo">选择视频示例</a></div>
 				</div>
 				<div class="step-line step-completed"></div>
 				<div class="step-line step-completed"></div>
@@ -53,7 +53,7 @@
 				<div class="step-line step-completed"></div>
 				<div class="step step-completed">
 					<div class="step-text">2</div>
-					<div class="step-main">算法解析</div>
+					<div class="step-main"><a href="#">指标呈现</a></div>
 				</div>
 				<div class="step-line step-completed"></div>
 				<div class="step-line step-completed"></div>
@@ -76,15 +76,15 @@
 						style="text-align: center; margin-top: 25px;">视频帧检测部分结果</h5>
 					<hr>
 					<div>
-					<img class="card-img-top" src="img/s1.png">
+					<img class="card-img-top" src="img/${video.vp1}.png">
 					<p class="card-text" style="color:#666;margin-bottom:15px;">截取时间 00：15</p>
 					</div>
 					<div >
-					<img class="card-img-top" src="img/s2.png">
+					<img class="card-img-top" src="img/${video.vp2}.png">
 					<p class="card-text" style="color:#666;margin-bottom:15px;">截取时间 00：36</p>
 					</div>
 					<div>
-					<img class="card-img-top" src="img/s3.png" style="margin: auto;">
+					<img class="card-img-top" src="img/${video.vp3}.png" style="margin: auto;">
 					<p class="card-text" style="color:#666;margin-bottom:15px;">截取时间 00：39</p>
 					</div>
 				</div>
@@ -94,7 +94,7 @@
 			<div class="col-sm-9">
 				<div class="card" style="height: 100%;">
 					<h5 class="card-title"
-						style="text-align: center; margin-top: 25px;">SSD指标分析结果</h5>
+						style="text-align: center; margin-top: 25px;">指标分析结果</h5>
 					<hr>
 					<div class="card-body" style="text-align: left;">
 						<div style="display: inline-block; width: 57%;">
@@ -103,12 +103,11 @@
 							<h6 class="card-subtitle mb-2 text-muted">
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mAP = P-R曲线积分所得 / 5
 								(类别数)</h6>
-							<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次模型表现指标为：78.08%</p>
-
+							<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次模型表现指标为：${ssd.ssdmAP*100}%</p>
 
 							<h6 class="card-subtitle mb-2 text-muted">
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FPS&nbsp;:&nbsp;每秒模型可处理的图片张数和检测框个数</h6>
-							<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次模型表现指标为：2.98</p>
+							<p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次模型表现指标为：${ssd.ssdFPS}</p>
 
 
 						</div>
@@ -117,19 +116,19 @@
 							
 							<h6 class="card-subtitle mb-2 text-muted">精确率 Precision =
 								正确被检索的结果/实际被检索的结果</h6>
-							<p class="card-text">本次模型表现指标为：95.76%</p>
+							<p class="card-text">本次模型表现指标为：${ssd.ssdP*100}%</p>
 
 							<h6 class="card-subtitle mb-2 text-muted">召回率 Recall =
 								正确被检索的结果/应该被检索的结果</h6>
-							<p class="card-text">本次模型表现指标为：87.94%</p>
+							<p class="card-text">本次模型表现指标为：${ssd.ssdR*100}%</p>
 
 							<h6 class="card-subtitle mb-2 text-muted">F-Measure =
 								精确率 * 召回率 * 2 / (精确率 + 召回率)</h6>
-							<p class="card-text">本次模型表现指标为：0.9</p>
+							<p class="card-text">本次模型表现指标为：${ssd.ssdF1}</p>
 
 							<a href="#" class="card-link" style="float: right;">查看指标来源和参考依据<<</a>
-							<br> <a href="UploadVeo" class="btn btn-outline-primary"
-								style="margin-top: 5%;">重新选择视频</a> <a href="Counter"
+							<br> <a href="VDemo" class="btn btn-outline-primary"
+								style="margin-top: 5%;">重新选择示例</a> <a href="Counter?vname=${video.vname}"
 								class="btn btn-primary" style="float: right; margin-top: 5%;">下一步</a>
 						</div>
 
@@ -191,22 +190,22 @@
 					name : 'SSD模型评估指标',
 					type : 'bar',
 					data : [ {
-						value : 0.9576,
+						value : ${ssd.ssdP},
 						itemStyle : {
 							color : '#fa983a'
 						}
 					}, {
-						value : 0.8794,
+						value : ${ssd.ssdR},
 						itemStyle : {
 							color : '#eb2f06'
 						}
 					}, {
-						value : 0.9,
+						value : ${ssd.ssdF1},
 						itemStyle : {
 							color : '#1e3799'
 						}
 					}, {
-						value : 0.7808,
+						value : ${ssd.ssdmAP},
 						itemStyle : {
 							color : '#38ada9'
 						}
