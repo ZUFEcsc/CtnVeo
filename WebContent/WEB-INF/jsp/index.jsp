@@ -74,8 +74,15 @@
 			<script>
 				function chooseVideoInput(event) {
 					var files = document.getElementById("uploaderInput").files[0];
+					console.log(files);
+					
+					var fname = files.name;
+					var half = "SSD?vname="+fname.slice(0,-4);
+					console.log(fname);
+					console.log(half);
+					
 					if (files != null) {
-						window.location.href = "SSD";
+						window.location.href = half;
 					}
 				}
 			</script>
