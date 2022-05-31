@@ -7,7 +7,14 @@ public class RoleTimeEntity {
 	private String phutime;
 	private String xfutime;
 	private String jxtime;
+	private String canvasdata;
 	
+	public String getCanvasdata() {
+		return canvasdata;
+	}
+	public void setCanvasdata(String canvasdata) {
+		this.canvasdata = canvasdata;
+	}
 	public String getVname() {
 		return vname;
 	}
